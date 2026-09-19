@@ -1,12 +1,23 @@
-# OIBSIP
-Data analysis projects: cleaning, Excel, Tableau, reporting.
-# Retail Sales Data Analysis
+# OIBSIP Data Analytics Projects
 
-This repository contains my data analysis project on a retail sales dataset. The project explores sales performance, customer demographics, product categories, and purchasing trends using Python and Google Colab.
+This repository contains my data analytics projects completed as part of my OASIS Infobyte internship. The projects demonstrate my skills in data cleaning, exploratory data analysis, customer segmentation, visualisation, and communicating business insights.
 
-## Project Objective
+## Tools Used
 
-The aim of this project is to clean, explore, and analyse retail sales data in order to identify useful business insights and support decision-making.
+- Python
+- Google Colab
+- Pandas
+- Matplotlib
+- Seaborn
+- Microsoft Excel
+
+---
+
+# Project 1: Retail Sales Data Analysis
+
+## Objective
+
+To clean, explore, and analyse a retail sales dataset in order to identify sales trends, customer behaviour, and product performance.
 
 ## Dataset
 
@@ -22,36 +33,24 @@ The dataset contains 1,000 retail transaction records and 9 columns:
 - Price per Unit
 - Total Amount
 
-## Tools Used
-
-- Python
-- Google Colab
-- Pandas
-- Matplotlib
-- Seaborn
-- Microsoft Excel
-
 ## Data Cleaning
 
-The following checks and cleaning activities were completed:
+The following data-quality checks were completed:
 
 - Checked the dataset shape, column names, and data types
-- Checked for missing values
-- Checked for duplicate records
+- Checked for missing values and duplicate records
 - Converted the Date column to datetime format
-- Checked values in Gender and Product Category for consistency
+- Checked Gender and Product Category values for consistency
 - Validated that Total Amount equals Quantity multiplied by Price per Unit
 - Exported a final cleaned dataset
 
-## Exploratory Data Analysis
-
-The analysis includes visualisations and insights on:
+## Analysis Performed
 
 - Total sales by product category
-- Average transaction value by product category
+- Monthly sales trend
 - Sales by gender
 - Customer age-group distribution
-- Monthly sales trends
+- Average transaction value by product category
 - Number of transactions by age group
 
 ## Key Insights
@@ -60,24 +59,78 @@ The analysis includes visualisations and insights on:
 - Beauty had the highest average transaction value.
 - Female customers generated slightly more total revenue than male customers.
 - Customers aged 45–54 made the highest number of transactions.
-- The dataset contained 1,000 records with no missing values and no duplicate rows.
-- Total Amount was successfully validated against Quantity and Price per Unit.
+- The dataset had no missing values or duplicate rows.
+- Total Amount was successfully validated for all records.
 
-## Files in This Repository
+## Files
 
-- `Retail Sales EDA Project.ipynb` – Google Colab notebook containing the cleaning process, analysis, charts, and findings
-- `cleaned_retail_sales_final.csv` – Final cleaned retail sales dataset
-- `README.md` – Project documentation
+- `Retail Sales EDA Project.ipynb` — Notebook containing cleaning, analysis, charts, findings, and recommendations
+- `cleaned_retail_sales_final.csv` — Final cleaned retail sales dataset
 
-## How to Run the Project
+---
 
-1. Download or clone this repository.
-2. Open the `.ipynb` file in Google Colab or Jupyter Notebook.
-3. Upload the dataset if required.
-4. Run the notebook cells in order to reproduce the analysis and visualisations.
+# Project 2: Customer Segmentation Analysis
+
+## Objective
+
+To group customers into meaningful value segments based on their total spending and identify actions that can help improve customer value and retention.
+
+## Dataset
+
+This project uses the cleaned retail sales dataset containing 1,000 transaction records. Each Customer ID appears once in the dataset, so each row represents one customer's purchase behaviour. [page:49]
+
+## Methodology
+
+Customer-level features were created using:
+
+- Total amount spent
+- Number of transactions
+- Average transaction value
+- Customer age
+- Gender
+- Total quantity purchased
+- Most frequently purchased product category
+
+Customers were assigned to three groups using the 33rd and 67th percentiles of total spending:
+
+- Low-Value Customers
+- Medium-Value Customers
+- High-Value Customers
+
+## Segmentation Results
+
+| Customer segment | Number of customers | Average total spend | Average age |
+|---|---:|---:|---:|
+| Low-Value | 349 | 52.84 | 41.03 |
+| Medium-Value | 352 | 210.11 | 42.66 |
+| High-Value | 299 | 1,216.05 | 40.32 |
+
+The customer distribution was relatively balanced across the three value segments. High-Value customers had the largest average spend, while age differences across the groups were small. [page:49]
+
+## Key Insights
+
+- High-Value customers had the highest average spend, about 1,216.05 per customer. [page:49]
+- Medium-Value customers were the largest segment, with 352 customers and an average total spend of 210.11. [page:49]
+- Low-Value customers had the lowest average spend, about 52.84 per customer. [page:49]
+- Each customer made one transaction in this dataset; therefore, segment differences are driven mainly by purchase value rather than purchase frequency. [page:49]
+- Gender distribution was similar across all segments, so spend-based targeting is more useful than gender-based targeting. [page:49]
+
+## Recommendations
+
+- Offer loyalty rewards, premium product bundles, and early access to High-Value customers.
+- Use cross-selling and upselling campaigns to move Medium-Value customers into the High-Value segment.
+- Encourage larger purchases among Low-Value customers through bundle offers, discounts, and minimum-spend promotions.
+- Focus customer campaigns on spending behaviour and product preferences rather than gender alone.
+
+## Files
+
+- `Customer Segmentation Project.ipynb` — Notebook containing customer-level analysis, segmentation, chart, insights, and recommendations
+- `customer_segments.csv` — Dataset containing customer features and assigned value segments
+
+---
 
 ## Author
 
 **Bukunmi Tolu**
 
-Aspiring Data Analyst with interests in data cleaning, Excel, Python, visualisation, and business insights.
+Aspiring Data Analyst with interests in Python, Excel, data cleaning, data visualisation, customer analytics, and business insights.
