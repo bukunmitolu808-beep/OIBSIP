@@ -77,7 +77,7 @@ To group customers into meaningful value segments based on their total spending 
 
 ## Dataset
 
-This project uses the cleaned retail sales dataset containing 1,000 transaction records. Each Customer ID appears once in the dataset, so each row represents one customer's purchase behaviour. [page:49]
+This project uses the cleaned retail sales dataset containing 1,000 transaction records. Each Customer ID appears once in the dataset, so each row represents one customer's purchase behaviour.
 
 ## Methodology
 
@@ -105,15 +105,15 @@ Customers were assigned to three groups using the 33rd and 67th percentiles of t
 | Medium-Value | 352 | 210.11 | 42.66 |
 | High-Value | 299 | 1,216.05 | 40.32 |
 
-The customer distribution was relatively balanced across the three value segments. High-Value customers had the largest average spend, while age differences across the groups were small. [page:49]
+The customer distribution was relatively balanced across the three value segments. High-Value customers had the largest average spend, while age differences across the groups were small.
 
 ## Key Insights
 
-- High-Value customers had the highest average spend, about 1,216.05 per customer. [page:49]
-- Medium-Value customers were the largest segment, with 352 customers and an average total spend of 210.11. [page:49]
-- Low-Value customers had the lowest average spend, about 52.84 per customer. [page:49]
-- Each customer made one transaction in this dataset; therefore, segment differences are driven mainly by purchase value rather than purchase frequency. [page:49]
-- Gender distribution was similar across all segments, so spend-based targeting is more useful than gender-based targeting. [page:49]
+- High-Value customers had the highest average spend, about 1,216.05 per customer.
+- Medium-Value customers were the largest segment, with 352 customers and an average total spend of 210.11.
+- Low-Value customers had the lowest average spend, about 52.84 per customer.
+- Each customer made one transaction in this dataset; therefore, segment differences are driven mainly by purchase value rather than purchase frequency.
+- Gender distribution was similar across all segments, so spend-based targeting is more useful than gender-based targeting.
 
 ## Recommendations
 
@@ -129,28 +129,78 @@ The customer distribution was relatively balanced across the three value segment
 
 ---
 
-### Data Quality Report
+# Project 3: Data Cleaning Project (Level 1, Task 3)
 
-**Original dataset:**
+## Objective
+
+To clean a messy employee dataset by identifying and fixing data-quality issues such as missing values, incorrect data types, and invalid entries, and to document the cleaning process and results.
+
+## Dataset
+
+The dataset contains 1,020 employee records and 12 columns:
+
+- Employee_ID
+- First_Name
+- Last_Name
+- Age
+- Department_Region
+- Status
+- Join_Date
+- Salary
+- Email
+- Phone
+- Performance_Score
+- Remote_Work
+
+## Data-Quality Issues Identified
+
+- Missing values in `Age` (211) and `Salary` (24)
+- `Join_Date` stored as text instead of datetime
+- `Phone` column contained invalid negative integers
+- Categorical columns (`Status`, `Performance_Score`, `Department_Region`) needed standardisation
+
+## Data-Cleaning Process
+
+1. **Converted Join_Date to datetime**  
+   - Ensured dates are in a proper datetime format for analysis.
+
+2. **Handled missing Age**  
+   - Filled missing `Age` values with the median age.  
+   - Converted `Age` from float to integer.
+
+3. **Handled missing Salary**  
+   - Filled missing `Salary` values with the median salary.
+
+4. **Fixed invalid Phone column**  
+   - Recognised that all phone values were invalid.  
+   - Set the entire `Phone` column to missing (`<NA>`) to indicate unusable data.
+
+5. **Standardised categorical columns**  
+   - Cleaned and standardised `Status`, `Performance_Score`, and `Department_Region` to title case and removed extra spaces.
+
+## Data Quality Report
+
+**Before cleaning:**
 - Shape: 1,020 rows × 12 columns
 - Missing values: Age (211), Salary (24)
 - Join_Date stored as text (object)
 - Phone column contained invalid negative integers
 - Duplicate rows: 0
 
-**Cleaning steps:**
-- Converted Join_Date to datetime format.
-- Filled missing Age with median age and converted to integer.
-- Filled missing Salary with median salary.
-- Replaced invalid Phone values with missing (all entries set to <NA>).
-- Standardised Status, Performance_Score, and Department_Region to title case and removed extra spaces.
-
-**Final dataset:**
+**After cleaning:**
 - Shape: 1,020 rows × 12 columns
-- No missing values in Age, Salary, or Join_Date.
-- Phone column intentionally set to all missing due to invalid original data.
-- All categorical columns consistent and ready for analysis.
+- No missing values in Age, Salary, or Join_Date
+- Phone column intentionally set to all missing due to invalid original data
+- All categorical columns consistent and ready for analysis
 - Duplicate rows: 0
+
+## Files
+
+- `Data_Cleaning_Project.ipynb` — Notebook documenting the full cleaning process and data-quality report
+- `cleaned_employee_data.csv` — Final cleaned employee dataset
+
+---
+
 ## Author
 
 **Bukunmi Tolu**
