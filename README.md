@@ -129,6 +129,28 @@ The customer distribution was relatively balanced across the three value segment
 
 ---
 
+### Data Quality Report
+
+**Original dataset:**
+- Shape: 1,020 rows × 12 columns
+- Missing values: Age (211), Salary (24)
+- Join_Date stored as text (object)
+- Phone column contained invalid negative integers
+- Duplicate rows: 0
+
+**Cleaning steps:**
+- Converted Join_Date to datetime format.
+- Filled missing Age with median age and converted to integer.
+- Filled missing Salary with median salary.
+- Replaced invalid Phone values with missing (all entries set to <NA>).
+- Standardised Status, Performance_Score, and Department_Region to title case and removed extra spaces.
+
+**Final dataset:**
+- Shape: 1,020 rows × 12 columns
+- No missing values in Age, Salary, or Join_Date.
+- Phone column intentionally set to all missing due to invalid original data.
+- All categorical columns consistent and ready for analysis.
+- Duplicate rows: 0
 ## Author
 
 **Bukunmi Tolu**
